@@ -4,7 +4,9 @@ import Navbar from './components/Navbar';
 import Hero from './sections/Hero';
 import Servicios from './sections/Servicios';
 import Plataformas from './sections/Plataformas';
-
+import Proyectos from './sections/Proyectos';
+import Colaboraciones from './sections/Colaboraciones';
+import Footer from './sections/Footer';
 
 function App() {
   return (
@@ -14,9 +16,10 @@ function App() {
         <Hero />
         <Servicios />
         <Plataformas />
-         
-        
-        <div style={{ height: '100vh', backgroundColor: '#f5f5f5' }}></div>
+        <Proyectos />
+        <Colaboraciones />
+        <Footer />
+      
       </main>
     </div>
   );

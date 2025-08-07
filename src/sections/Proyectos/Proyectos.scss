@@ -1,0 +1,214 @@
+// src/sections/Proyectos/Proyectos.scss
+@import '../../styles/abstracts/variables';
+@import '../../styles/abstracts/mixins';
+
+.proyectos {
+  padding: 10rem 0;
+  background-color: $white;
+  position: relative;
+
+  &__header {
+    text-align: center;
+    margin-bottom: 6rem;
+  }
+
+  &__title {
+    font-family: $font-primary;
+    font-size: clamp(3rem, 5vw, 4.5rem);
+    font-weight: map-get($visby-weights, 'regular');
+    letter-spacing: 0.15em;
+    margin-bottom: 4rem;
+    color: $black;
+    padding: 1.5rem 4rem;
+    border: 2px solid $black;
+    border-radius: 50px;
+    display: inline-block;
+    text-transform: uppercase;
+  }
+
+  &__line {
+    width: 100%;
+    max-width: 1400px;
+    height: 3px;
+    background-color: map-get($colors, 'here'); // Cambiar a 'here' para el color amarillo
+    margin: 0 auto;
+    transform-origin: center;
+  }
+
+  &__carousel {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    opacity: 0;
+  }
+
+  &__brands {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    align-items: center;
+    min-height: 400px;
+
+    @include responsive(tablet) {
+      gap: 1.5rem;
+      min-height: 350px;
+    }
+
+    @include responsive(mobile) {
+      flex-direction: column;
+      gap: 2rem;
+      min-height: auto;
+    }
+  }
+
+  &__brand {
+    flex: 1;
+    max-width: 350px;
+    cursor: pointer;
+    opacity: 0;
+    transform: scale(0.9);
+    transition: all $transition-base;
+    height: 400px;
+
+    @include responsive(tablet) {
+      height: 350px;
+    }
+
+    @include responsive(mobile) {
+      width: 100%;
+      max-width: 300px;
+      height: 300px;
+    }
+
+    &:hover {
+      .proyectos__brand-container {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+      }
+
+      .proyectos__brand-bg {
+        transform: scale(1.1);
+        filter: brightness(1.2);
+      }
+
+      .proyectos__brand-overlay {
+        opacity: 0.5;
+      }
+    }
+  }
+
+  &__brand-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: $radius-md;
+    overflow: hidden;
+    transition: all $transition-base;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  }
+
+  &__brand-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    transition: all $transition-base;
+  }
+
+  &__brand-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.2) 0%,
+      rgba(0, 0, 0, 0.7) 100%
+    );
+    opacity: 0.8;
+    transition: all $transition-base;
+  }
+
+  &__brand-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+  }
+
+  &__brand-logo {
+    max-width: 200px;
+    max-height: 100px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    filter: brightness(0) invert(1);
+    opacity: 0.95;
+
+    @include responsive(mobile) {
+      max-width: 150px;
+      max-height: 80px;
+    }
+  }
+
+  &__brand-name {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    color: $white;
+    font-family: $font-primary;
+    font-size: 1.8rem;
+    font-weight: map-get($visby-weights, 'demi-bold');
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    opacity: 0;
+    transition: all $transition-base;
+  }
+
+  &__navigation {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 4rem;
+
+    @include responsive(mobile) {
+      margin-top: 3rem;
+    }
+  }
+
+  &__nav-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: $chrome-white;
+    cursor: pointer;
+    transition: all $transition-base;
+
+    &--active {
+      background-color: map-get($colors, 'here');
+      transform: scale(1.3);
+    }
+
+    &:hover {
+      background-color: darken($chrome-white, 20%);
+    }
+  }
+}
+
+// Project Modal específico para HERE (si necesitas diferencias)
+.project-modal {
+  &__left {
+    background-color: map-get($colors, 'here') !important; // Override para usar el amarillo de HERE
+  }
+}
