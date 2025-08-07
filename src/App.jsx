@@ -2,7 +2,9 @@
 import React from 'react';
 import Navbar from './components/Navbar';
 import Hero from './sections/Hero';
-import './styles/main.scss';
+import Servicios from './sections/Servicios';
+import Plataformas from './sections/Plataformas';
+
 
 function App() {
   return (
@@ -10,7 +12,10 @@ function App() {
       <Navbar />
       <main>
         <Hero />
-        {/* Sección temporal para hacer scroll */}
+        <Servicios />
+        <Plataformas />
+         
+        
         <div style={{ height: '100vh', backgroundColor: '#f5f5f5' }}></div>
       </main>
     </div>

@@ -7,9 +7,10 @@
   top: 0;
   left: 0;
   width: 100%;
-  z-index: map-get($z-layers, 'navbar');
+  z-index: 1000;
   background-color: $white;
   padding: 1.5rem 0;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
 
   &__container {
     display: flex;
@@ -20,7 +21,7 @@
   &__logo {
     cursor: pointer;
     transition: transform $transition-base;
-    height: 35px;
+    height: 50px; // Más grande
     
     &:hover {
       transform: scale(1.05);
@@ -35,7 +36,7 @@
   &__menu {
     display: flex;
     align-items: center;
-    gap: 2.5rem;
+    gap: 3rem; // Más espacio
     margin: 0;
     padding: 0;
     list-style: none;
@@ -51,7 +52,7 @@
       justify-content: center;
       gap: 3rem;
       transition: right 0.3s ease;
-      z-index: map-get($z-layers, 'modal');
+      z-index: 400;
 
       &--open {
         right: 0;
@@ -62,17 +63,17 @@
       list-style: none;
       
       a {
-        font-family: $font-primary;
-        font-weight: map-get($visby-weights, 'regular');
-        font-size: 0.85rem;
-        letter-spacing: 0.08em;
+        font-family: 'VisbyCF', Arial, sans-serif; // Fallback font
+        font-weight: 500; // Más grueso
+        font-size: 1.5rem; // MÁS GRANDE (antes 0.85rem)
+        letter-spacing: 0.1em;
         cursor: pointer;
         position: relative;
         transition: color $transition-base;
         color: $black;
         text-decoration: none;
+        text-transform: uppercase; // Para que se vea más bold
 
-        // Hover effect como en halopage
         &::after {
           content: '';
           position: absolute;
@@ -80,7 +81,7 @@
           left: 0;
           width: 0;
           height: 2px;
-          background-color: map-get($colors, 'here');
+          background-color: #FFD965;
           transition: width $transition-base;
         }
 
@@ -88,6 +89,12 @@
           &::after {
             width: 100%;
           }
+        }
+
+        // Estilos para móvil
+        @include responsive(tablet) {
+          font-size: 1.8rem;
+          font-weight: 600;
         }
       }
     }

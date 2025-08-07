@@ -63,9 +63,9 @@
     gap: 0.3rem; // Poco espacio entre líneas
 
     &-line {
-      font-family: $font-primary;
+      font-family: 'VisbyCF', Arial, sans-serif; 
       font-size: clamp(1.8rem, 2.5vw, 2.3rem);
-      font-weight: map-get($visby-weights, 'light');
+      font-weight: 400;
       color: $white;
       letter-spacing: 0.05em;
       margin: 0;
